@@ -87,7 +87,14 @@ func (s *Session) put(cmds []string) {
 }
 
 func (s *Session) del(cmds []string) {
-
+	if len(cmds) != 2 {
+		fmt.Println("error del cmd")
+		return
+	}
+	err := s.DB.Delete([]byte(cmds[1]), nil)
+	if err != nil {
+		fmt.Printf("Error: %s\n", err.Error())
+	}
 }
 
 func printHelp() {
