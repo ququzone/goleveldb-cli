@@ -65,6 +65,7 @@ func (s *Session) keys() {
 func (s *Session) get(cmds []string) {
 	if len(cmds) != 2 {
 		fmt.Println("error get cmd")
+		return
 	}
 	v, err := s.DB.Get([]byte(cmds[1]), nil)
 	if err != nil {
