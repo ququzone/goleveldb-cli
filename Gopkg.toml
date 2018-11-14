@@ -1,0 +1,2 @@
+[prune]
+  go-tests = true
