@@ -70,12 +70,20 @@ func (s *Session) get(cmds []string) {
 	v, err := s.DB.Get([]byte(cmds[1]), nil)
 	if err != nil {
 		fmt.Printf("Error: %s\n", err.Error())
+	} else {
+		fmt.Println(string(v))
 	}
-	fmt.Println(string(v))
 }
 
 func (s *Session) put(cmds []string) {
-
+	if len(cmds) != 3 {
+		fmt.Println("error put cmd")
+		return
+	}
+	err := s.DB.Put([]byte(cmds[1]), []byte(cmds[2]), nil)
+	if err != nil {
+		fmt.Printf("Error: %s\n", err.Error())
+	}
 }
 
 func (s *Session) del(cmds []string) {
