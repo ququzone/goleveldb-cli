@@ -11,3 +11,9 @@ cd goleveldb-cli
 dep ensure
 go build .
 ```
+
+## Usage
+
+```
+./goleveldb-cli -d xxx.db
+```
